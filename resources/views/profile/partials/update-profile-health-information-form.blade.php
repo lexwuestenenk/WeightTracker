@@ -18,7 +18,19 @@
         @method('patch')
 
         <div>
-            <x-input-label for="weights" :value="__('Weight')" />
+            <x-input-label for="age" :value="__('Age')" />
+            <x-text-input id="age" name="age" type="text" class="mt-1 block w-full" :value="old('age', $personal_information->age)" required autofocus autocomplete="name" />
+            <x-input-error class="mt-2" :messages="$errors->get('age')" />
+        </div>
+    
+        <div>
+            <x-input-label for="length" :value="__('Length (CM)')" />
+            <x-text-input id="length" name="length" type="text" class="mt-1 block w-full" :value="old('length', $personal_information->length)" required autofocus autocomplete="name" />
+            <x-input-error class="mt-2" :messages="$errors->get('length')" />
+        </div>
+
+        <div>
+            <x-input-label for="weights" :value="__('Weight (KG)')" />
             <x-text-input id="weights" name="weights" type="text" class="mt-1 block w-full" :value="old('weight', $weight_latest->weights)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('Weight')" />
 

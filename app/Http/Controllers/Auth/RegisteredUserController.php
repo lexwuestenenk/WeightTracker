@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\user_weight;
+use App\Models\personal_information;
 
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -53,8 +54,12 @@ class RegisteredUserController extends Controller
 
         user_weight::create([
             'user_id' => Auth::user()->id,
-            'weight' => 0,
         ]);
+
+        personal_information::create([
+            'user_id' => Auth::user()->id,
+        ]);
+
 
         return redirect(RouteServiceProvider::HOME);
     }

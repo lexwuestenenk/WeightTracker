@@ -29,7 +29,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/user-info', [App\Http\Controllers\UserWeightController::class, 'index'])->name('user-info.index');
-Route::patch('/user-info', [App\Http\Controllers\UserWeightController::class, 'update'])->name('user-info.update');
+Route::middleware('auth')->group(function () {
+    Route::get('/user-info', [App\Http\Controllers\UserWeightController::class, 'index'])->name('user-info.index');
+    Route::patch('/user-info', [App\Http\Controllers\UserWeightController::class, 'update'])->name('user-info.update');
+});
 
 require __DIR__.'/auth.php';
