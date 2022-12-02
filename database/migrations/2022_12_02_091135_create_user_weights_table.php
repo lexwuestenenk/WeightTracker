@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->float('weights', 4, 2)->nullable();
+            $table->float('weights', 5, 2)->nullable();
             $table->timestamps();
         });
     }
