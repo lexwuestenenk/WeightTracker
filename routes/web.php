@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\UserWeightController;
+use App\Http\Controllers\UserHealthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,8 +31,8 @@ Route::middleware('auth')->group(function () {
 
 // User health information
 Route::middleware('auth')->group(function () {
-    Route::get('/user-info', [App\Http\Controllers\UserWeightController::class, 'index'])->name('user-info.index');
-    Route::patch('/user-info', [App\Http\Controllers\UserWeightController::class, 'update'])->name('user-info.update');
+    Route::get('/user-info', [App\Http\Controllers\UserHealthController::class, 'index'])->name('user-info.index');
+    Route::patch('/user-info', [App\Http\Controllers\UserHealthController::class, 'update'])->name('user-info.update');
 });
 
 require __DIR__.'/auth.php';
