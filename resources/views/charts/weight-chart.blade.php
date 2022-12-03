@@ -10,7 +10,7 @@
     </header>
 
     <div>
-        <canvas id="weightChart" class="max-w-fit"></canvas>
+        <canvas id="weightChart" class="max-w-fit mb-6"></canvas>
         <input id="weightChartValue" type="hidden" value={{ $weight }}></input>
     </div>
 
