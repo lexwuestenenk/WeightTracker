@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedBigInteger('weight_id');
-            $table->foreign('weight_id')->references('id')->on('user_weights');
-            $table->integer('leeftijd');
-            $table->integer('length');
+            $table->unsignedBigInteger('weight_id')->nullable();
+            $table->foreign('weight_id')->references('id')->on('user_weights')->nullable();
+            $table->integer('age')->nullable();
+            $table->integer('length')->nullable();
             $table->timestamps();
         });
     }
