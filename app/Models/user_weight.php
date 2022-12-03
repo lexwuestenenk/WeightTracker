@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class user_weight extends Model
 {
     use HasFactory;
-    protected $fillable = ['user_id', 'weights'];
+    protected $fillable = ['user_id', 'weights', 'bmi'];
 }

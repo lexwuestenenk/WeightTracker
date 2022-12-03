@@ -1,43 +1,42 @@
 <section class="w-full">
     <header>
         <h2 class="text-gray-900 dark:text-white">
-            {{ __('Weight chart') }}
+            {{ __('BMI chart') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            {{ __('Displays your weight overtime') }}
+            {{ __('Displays your BMI (Body Mass Index) overtime') }}
         </p>
     </header>
 
     <div>
-        <canvas id="weightChart" class="max-w-fit"></canvas>
+        <canvas id="bmiChart" class="max-w-fit"></canvas>
         <input id="weightChartValue" type="hidden" value={{ $weight }}></input>
     </div>
 
     <script>
-        const weightChart = document.getElementById('weightChart')
-        let weight_chart_data = JSON.parse(document.getElementById('weightChartValue').value)
-        let weight_labels = [];
-        let weight = [];
-        weight_chart_data.forEach(element => {
+        const bmiChart = document.getElementById('bmiChart')
+        let bmi_chart_data = JSON.parse(document.getElementById('weightChartValue').value)
+        let bmi_labels = [];
+        let bmi = [];
+        bmi_chart_data.forEach(element => {
           let date = element.date.split('T')
-          weight_labels.push(date[0])
-          weight.push(element.weight)
+          bmi_labels.push(date[0])
+          bmi.push(element.bmi)
         });
-
-        new Chart(weightChart, {
+        new Chart(bmiChart, {
           type: 'line',
           data: {
-            labels: weight_labels,
+            labels: bmi_labels,
             datasets: [{
-              label: 'Weight in KG',
+              label: 'BMI',
               fill: true,
-              data: weight,
+              data: bmi,
               borderWidth: 1,
               tension: 0.3,
-              color: 'rgba(240, 83, 64, 0.8)',
-              borderColor: 'rgba(240, 83, 64, 0.8)',
-              backgroundColor: 'rgba(240, 83, 64, 0.3)',
+              color: 'rgba(57, 255, 20, 0.8)',
+              borderColor: 'rgba(57, 255, 20, 0.8)',
+              backgroundColor: 'rgba(57, 255, 20, 0.3)',
             }]
           },
           options: {

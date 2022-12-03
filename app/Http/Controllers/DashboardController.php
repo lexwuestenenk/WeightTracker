@@ -14,7 +14,7 @@ class DashboardController extends Controller
         $weight_array = [];
         $weight = user_weight::where('user_id', Auth::user()->id)->get()->splice(1);
         foreach ($weight as $w) {
-            array_push($weight_array, ['date' => $w->created_at, 'weight' => $w->weights]);
+            array_push($weight_array, ['date' => $w->created_at, 'weight' => $w->weights, 'bmi' => $w->bmi]);
         }
         
         return view('dashboard', [

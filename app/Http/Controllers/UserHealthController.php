@@ -9,16 +9,10 @@ use App\Models\user_weight;
 use App\Models\personal_information;
 
 
-class UserWeightController extends Controller
+class UserHealthController extends Controller
 {
     public function index(Request $request)
     {
-        $weight_array = [];
-        $weight = user_weight::where('user_id', Auth::user()->id)->get();
-        foreach ($weight as $w) {
-            array_push($weight_array, ['label' => $w->created_at, 'y' => $w->weights]);
-        }
-
         return view('user', [
             'user' => $request->user(),
             'weight' => user_weight::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->paginate(15),
@@ -31,7 +25,8 @@ class UserWeightController extends Controller
     {
         user_weight::create([
             'user_id' => Auth::user()->id,
-            'weights' => $request->weights
+            'weights' => $request->weights,
+            'bmi' => round((($request->weights / $request->length / $request->length) * 10000), 2)
         ]);
 
         personal_information::updateOrCreate(
@@ -46,6 +41,6 @@ class UserWeightController extends Controller
             ]
         );
 
-        return redirect('/user-info')->with('status', 'Weight has been updated!'); 
+        return redirect('/user-info')->with('status', 'Health information has been updated!'); 
     }
 }

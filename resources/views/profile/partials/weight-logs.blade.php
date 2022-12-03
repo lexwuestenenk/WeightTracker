@@ -20,6 +20,10 @@
                     KG: {{ $w->weights }}
                 </div>
                 <p>&nbsp-&nbsp</p>
+                <div class="pr-6" name="weights">
+                    BMI: {{ $w->bmi }}
+                </div>
+                <p>&nbsp-&nbsp</p>
                 <div class="pr-6" name="created_at">
                     TIME: {{ $w->created_at }}
                 </div>
