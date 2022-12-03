@@ -1,6 +1,6 @@
 <section>
     <header>
-        <h2 class="text-lg font-medium text-gray-900">
+        <h2 class="text-gray-900 dark:text-white">
             {{ __('Weight chart') }}
         </h2>
 
@@ -35,7 +35,10 @@
               label: 'Weight in KG',
               fill: true,
               data: data,
-              borderWidth: 1
+              borderWidth: 1,
+              color: 'rgba(240, 83, 64, 0.8)',
+              borderColor: 'rgba(240, 83, 64, 0.8)',
+              backgroundColor: 'rgba(240, 83, 64, 0.8)',
             }]
           },
           options: {
