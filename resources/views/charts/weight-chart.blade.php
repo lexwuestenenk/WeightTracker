@@ -10,7 +10,7 @@
     </header>
 
     <div>
-        <canvas id="weightChart" class="max-w-fit mb-6"></canvas>
+        <canvas id="weightChart"></canvas>
         <input id="weightChartValue" type="hidden" value={{ $weight }}></input>
     </div>
 
@@ -38,6 +38,7 @@
               color: 'rgba(240, 83, 64, 0.8)',
               borderColor: 'rgba(240, 83, 64, 0.8)',
               backgroundColor: 'rgba(240, 83, 64, 0.3)',
+              responsive: true,
             }]
           },
           options: {
