@@ -15,7 +15,7 @@ class UserHealthController extends Controller
     {
         return view('user', [
             'user' => $request->user(),
-            'weight' => user_weight::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->paginate(15),
+            'weight' => user_weight::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->paginate(15)->onEachSide(1),
             'weight_latest' => user_weight::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->first(),
             'personal_information' => personal_information::find(Auth::user()->id)
         ]);
