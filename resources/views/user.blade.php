@@ -7,16 +7,16 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6 mb-6 ">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
+            <div class="p-4 sm:p-8 bg-gray-100 dark:bg-gray-800 shadow sm:rounded-lg">
+                <div class="max-w-xl text-gray-600 dark:text-gray-400">
                     @include('.profile.partials.update-profile-health-information-form')
                 </div>
             </div>
         </div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6 mb-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+            <div class="p-4 sm:p-8 bg-gray-100 dark:bg-gray-800 shadow sm:rounded-lg">
                 <div class="w-full">
-                    <div class="w-full">
+                    <div class="w-full text-gray-600 dark:text-gray-400">
                         @include('.profile.partials.weight-logs')
                     </div>
                 </div>

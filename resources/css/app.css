@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.chart-container.split {
+    display: flex;
+    flex-grow: 1
+}

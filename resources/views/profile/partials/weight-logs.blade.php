@@ -1,6 +1,6 @@
 <section>
     <header>
-        <h2 class="text-lg font-medium text-gray-900">
+        <h2 class="text-lg g-white text-gray-900 dark:text-white">
             {{ __('Weight Logs') }}
         </h2>
 
@@ -11,7 +11,7 @@
 
     <div class="container">
         @foreach ($weight as $w)
-            <div class="flex flex-row h-10 bg-emerald-200">
+            <div class="flex flex-row h-10">
                 <div class="pr-6 min-w-10" name="user_id">
                     ID: {{ $w->user_id }} 
                 </div>

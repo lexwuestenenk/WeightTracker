@@ -10,7 +10,7 @@
     </header>
 
     <div>
-        <canvas id="bmiChart" class="max-w-fit"></canvas>
+        <canvas id="bmiChart"></canvas>
         <input id="weightChartValue" type="hidden" value={{ $weight }}></input>
     </div>
 
@@ -37,12 +37,13 @@
               color: 'rgba(57, 255, 20, 0.8)',
               borderColor: 'rgba(57, 255, 20, 0.8)',
               backgroundColor: 'rgba(57, 255, 20, 0.3)',
+              responsive: true,
             }]
           },
           options: {
             scales: {
               y: {
-                suggestedMin: (weight[0] - 20)
+                suggestedMin: (bmi[0] - 5)
               }
             }
           }

@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\UserHealthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +32,12 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/user-info', [App\Http\Controllers\UserHealthController::class, 'index'])->name('user-info.index');
     Route::patch('/user-info', [App\Http\Controllers\UserHealthController::class, 'update'])->name('user-info.update');
+});
+
+// Exercises & workout schemes
+Route::middleware('auth')->group(function () {
+    Route::get('/exercise', [App\Http\Controllers\ExerciseController::class, 'index'])->name('exercise.index');
+    Route::get('/exercise/{id}', [App\Http\Controllers\ExerciseController::class, 'show'])->name('exercise.show');
 });
 
 require __DIR__.'/auth.php';
