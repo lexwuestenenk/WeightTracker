@@ -44,7 +44,8 @@
           options: {
             scales: {
               y: {
-                suggestedMin: (weight[0] - 20)
+                suggestedMin: (weight[0] - 10),
+                suggestedMax: (weight[0] + 10)
               }
             }
           }

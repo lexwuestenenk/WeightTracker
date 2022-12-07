@@ -20,7 +20,7 @@ class WorkoutController extends Controller
     public function show($workout_id)
     {
         // Show workout with id that has been given in the web.php routes
-        $workout = workouts::find($workout_id);
+        $workout = workouts::find(1);
         dd($workout->exercises);
     }
 }

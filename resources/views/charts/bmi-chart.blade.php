@@ -24,6 +24,7 @@
           bmi_labels.push(date[0])
           bmi.push(element.bmi)
         });
+
         new Chart(bmiChart, {
           type: 'line',
           data: {
@@ -32,8 +33,8 @@
               label: 'BMI',
               fill: true,
               data: bmi,
-              borderWidth: 1,
-              tension: 0.3,
+              borderWidth: 2,
+              tension: 0,
               color: 'rgba(57, 255, 20, 0.8)',
               borderColor: 'rgba(57, 255, 20, 0.8)',
               backgroundColor: 'rgba(57, 255, 20, 0.3)',
@@ -43,7 +44,8 @@
           options: {
             scales: {
               y: {
-                suggestedMin: (bmi[0] - 5)
+                suggestedMin: (bmi[0] - 5),
+                suggestedMax: (bmi[0] + 5)
               }
             }
           }

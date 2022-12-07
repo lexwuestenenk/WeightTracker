@@ -11,7 +11,7 @@ class exercises extends Model
 
     public function exercises()
     {
-        return $this->morphedByMany(workouts::class, 'workout_exercises');
+        return $this->morphedByMany(workouts::class, 'can_have_exercise');
     }
 }
 

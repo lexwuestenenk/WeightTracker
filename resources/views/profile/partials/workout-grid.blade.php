@@ -1,11 +1,11 @@
 <section>
     <header>
         <h2 class="text-lg g-white text-gray-900 dark:text-white">
-            {{ __('Exercise overview') }}
+            {{ __('Workout overview') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-600 mb-6">
-            {{ __("All exercises available in our application") }}
+            {{ __("All your workouts") }}
         </p>
 
         <div class="exercise-grid">

@@ -34,7 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/user-info', [App\Http\Controllers\UserHealthController::class, 'update'])->name('user-info.update');
 });
 
-// Exercises & workout schemes
+// Exercises (Overview & Singular)
 Route::middleware('auth')->group(function () {
     Route::get('/exercise', [App\Http\Controllers\ExerciseController::class, 'index'])->name('exercise.index');
     Route::get('/exercise/{id}', [App\Http\Controllers\ExerciseController::class, 'show'])->name('exercise.show');
