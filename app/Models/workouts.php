@@ -5,13 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class exercises extends Model
+class workouts extends Model
 {
     use HasFactory;
 
     public function exercises()
     {
-        return $this->morphedByMany(workouts::class, 'workout_exercises');
+        return $this->morphToMany(exercises::class, 'workout_exercises');
     }
 }
-

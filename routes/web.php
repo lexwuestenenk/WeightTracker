@@ -40,4 +40,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/exercise/{id}', [App\Http\Controllers\ExerciseController::class, 'show'])->name('exercise.show');
 });
 
+Route::middleware('auth')->group(function () {
+    Route::get('/workout', [App\Http\Controllers\WorkoutController::class, 'index'])->name('workout.index');
+    Route::get('/workout/{id}', [App\Http\Controllers\WorkoutController::class, 'show'])->name('workout.show');
+});
+
+
 require __DIR__.'/auth.php';
