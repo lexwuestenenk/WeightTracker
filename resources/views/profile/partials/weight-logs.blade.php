@@ -4,27 +4,21 @@
             {{ __('Weight Logs') }}
         </h2>
 
-        <p class="mt-1 text-sm text-gray-600">
+        <p class="mt-1 text-sm text-gray-600 mb-6">
             {{ __("Check all your previous weight entries") }}
         </p>
     </header>
 
-    <div class="container">
+    <div class="container mb-6">
         @foreach ($weight as $w)
-            <div class="flex flex-row h-10">
-                <div class="pr-6 min-w-10" name="user_id">
-                    ID: {{ $w->user_id }} 
-                </div>
-                <p>&nbsp-&nbsp</p>
-                <div class="pr-6" name="weights">
+            <div class="flex flex-row h-10 log-row">
+                <div class="pr-6 flex grow log-row-item" name="weights">
                     KG: {{ $w->weights }}
                 </div>
-                <p>&nbsp-&nbsp</p>
-                <div class="pr-6" name="weights">
+                <div class="pr-6 flex grow log-row-item" name="weights">
                     BMI: {{ $w->bmi }}
                 </div>
-                <p>&nbsp-&nbsp</p>
-                <div class="pr-6" name="created_at">
+                <div class="pr-6 flex grow log-row-item" name="created_at">
                     TIME: {{ $w->created_at }}
                 </div>
             </div>

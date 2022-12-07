@@ -34,10 +34,16 @@ Route::middleware('auth')->group(function () {
     Route::patch('/user-info', [App\Http\Controllers\UserHealthController::class, 'update'])->name('user-info.update');
 });
 
-// Exercises & workout schemes
+// Exercises (Overview & Singular)
 Route::middleware('auth')->group(function () {
     Route::get('/exercise', [App\Http\Controllers\ExerciseController::class, 'index'])->name('exercise.index');
     Route::get('/exercise/{id}', [App\Http\Controllers\ExerciseController::class, 'show'])->name('exercise.show');
 });
+
+// Workout schemes
+Route::middleware('auth')->group(function () {
+    Route::get('/workout-overview', [App\Http\Controllers\WorkoutController::class, 'index'])->name('workout-overview.index');
+});
+
 
 require __DIR__.'/auth.php';
