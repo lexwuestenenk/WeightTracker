@@ -40,12 +40,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/exercise/{id}', [App\Http\Controllers\ExerciseController::class, 'show'])->name('exercise.show');
 });
 
-// Workout (Overview, Singular, Create, Update, Edit)
+// Workout (Overview, Create, Update, Delete, Singular)
 Route::middleware('auth')->group(function () {
     Route::get('/workout', [App\Http\Controllers\WorkoutController::class, 'index'])->name('workout.index');
     Route::post('/workout', [App\Http\Controllers\WorkoutController::class, 'create'])->name('workout.create');
     Route::patch('/workout', [App\Http\Controllers\WorkoutController::class, 'update'])->name('workout.update');
-    Route::patch('/workout', [App\Http\Controllers\WorkoutController::class, 'destroy'])->name('workout.destroy');
+    Route::delete('/workout', [App\Http\Controllers\WorkoutController::class, 'destroy'])->name('workout.destroy');
     Route::get('/workout/{id}', [App\Http\Controllers\WorkoutController::class, 'show'])->name('workout.show');
 });
 

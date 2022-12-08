@@ -46,4 +46,12 @@ class WorkoutController extends Controller
 
         return redirect()->route('workout.index');
     }
+
+    public function destroy(Request $request)
+    {
+        $workout = workouts::find($request->id);
+        $workout->delete();
+
+        return redirect()->route('workout.index');
+    }
 }

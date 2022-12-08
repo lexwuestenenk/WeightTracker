@@ -19,5 +19,6 @@
                 </a>
             @endforeach
         </div>
+
     </header>
 </section>
