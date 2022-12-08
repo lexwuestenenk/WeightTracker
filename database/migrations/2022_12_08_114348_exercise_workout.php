@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('can_have_exercises', function (Blueprint $table) {
-            $table->foreignId('exercises_id');
-            $table->foreignId('can_have_exercise_id');
-            $table->string('can_have_exercise_type');
+        Schema::create('exercise_workout', function (Blueprint $table) {
+            $table->foreignId('workout_id')->constrained();
+            $table->foreignId('exercise_id')->constrained();
         });
     }
 
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('can_have_exercises');
+        Schema::dropIfExists('exercise_workout');
     }
 };

@@ -11,6 +11,6 @@ class workouts extends Model
 
     public function exercises()
     {
-        return $this->morphToMany(exercises::class, 'can_have_exercise');
+        return $this->belongsToMany(exercises::class, 'exercise_workout', 'workout_id', 'exercise_id');
     }
 }
