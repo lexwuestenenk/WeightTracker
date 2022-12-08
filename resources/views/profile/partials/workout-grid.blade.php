@@ -32,7 +32,7 @@
 
         <div class="exercise-grid">
             @foreach ($workout as $w)
-                <a href="{{ url('workout/' . $w->id)}}">
+                <a href="{{ url('workout/' . $w->id)}}" style="height: 100%; width: 100%;">
                     <div class="exercise-grid-child p-4 sm:p-8 shadow sm:rounded-lg">
                         <div style="height: 80%;">
                             <p class="text-gray-900 dark:text-white">{{ $w->name }}</p>

@@ -5,8 +5,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 use App\Models\workouts;
-use App\Models\exercises;
-use App\Models\WorkoutExercise;
 
 class WorkoutController extends Controller
 {
@@ -36,8 +34,16 @@ class WorkoutController extends Controller
             'user_id' => Auth::user()->id
         ]);
 
-        return view('workout_overview', [
-            'workout' => workouts::where('user_id', Auth::user()->id)->get()
-        ]);
+        return redirect()->route('workout.index');
+    }
+
+    public function update(Request $request)
+    {
+        $workout = workouts::find($request->id);
+        $workout->name = $request->name;
+        $workout->description = $request->description;
+        $workout->save();
+
+        return redirect()->route('workout.index');
     }
 }
