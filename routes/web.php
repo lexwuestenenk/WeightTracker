@@ -40,9 +40,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/exercise/{id}', [App\Http\Controllers\ExerciseController::class, 'show'])->name('exercise.show');
 });
 
-// Workout schemes
 Route::middleware('auth')->group(function () {
-    Route::get('/workout-overview', [App\Http\Controllers\WorkoutController::class, 'index'])->name('workout-overview.index');
+    Route::get('/workout', [App\Http\Controllers\WorkoutController::class, 'index'])->name('workout.index');
+    Route::post('/workout', [App\Http\Controllers\WorkoutController::class, 'create'])->name('workout.create');
+    Route::get('/workout/{id}', [App\Http\Controllers\WorkoutController::class, 'show'])->name('workout.show');
 });
 
 

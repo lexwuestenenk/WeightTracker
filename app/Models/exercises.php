@@ -9,3 +9,4 @@ class exercises extends Model
 {
     use HasFactory;
 }
+

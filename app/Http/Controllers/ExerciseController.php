@@ -18,7 +18,7 @@ class ExerciseController extends Controller
     public function show($id)
     {
         return view('exercise_detail', [
-            'exercise' => exercises::where('id', $id)->first()
+            'exercise' => exercises::find($id)
         ]);
     }
 }
