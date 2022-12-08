@@ -11,7 +11,8 @@
     min-height: 20rem;
     max-height: 20rem;
     overflow: hidden;
-    text-overflow: clip;
+    text-overflow: wrap;
+    overflow-wrap: break-word;
 }
 
 .log-row {

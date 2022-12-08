@@ -34,9 +34,11 @@
             @foreach ($workout as $w)
                 <a href="{{ url('workout/' . $w->id)}}">
                     <div class="exercise-grid-child p-4 sm:p-8 shadow sm:rounded-lg">
-                        <p class="text-gray-900 dark:text-white">{{ $w->name }}</p>
-                        <br>
-                        <p>{{ $w->description }}</p>
+                        <div style="height: 80%;">
+                            <p class="text-gray-900 dark:text-white">{{ $w->name }}</p>
+                            <br>
+                            <p>{{ $w->description }}</p>
+                        </div>
                     </div>
                 </a>
             @endforeach
