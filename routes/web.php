@@ -42,6 +42,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/workout', [App\Http\Controllers\WorkoutController::class, 'index'])->name('workout.index');
+    Route::post('/workout', [App\Http\Controllers\WorkoutController::class, 'create'])->name('workout.create');
     Route::get('/workout/{id}', [App\Http\Controllers\WorkoutController::class, 'show'])->name('workout.show');
 });
 

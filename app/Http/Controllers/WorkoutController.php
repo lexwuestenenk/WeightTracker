@@ -22,8 +22,22 @@ class WorkoutController extends Controller
         // Show workout with id that has been given in the web.php routes
         $workout = workouts::find($workout_id);
         
-        return view('exercise_overview', [
+        return view('workout_exercise_overview', [
+            'workout' => $workout,
             'exercise' => $workout->exercises
+        ]);
+    }
+
+    public function create(Request $request)
+    {
+        workouts::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'user_id' => Auth::user()->id
+        ]);
+
+        return view('workout_overview', [
+            'workout' => workouts::where('user_id', Auth::user()->id)->get()
         ]);
     }
 }
