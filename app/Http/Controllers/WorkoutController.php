@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\exercises;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -19,10 +21,12 @@ class WorkoutController extends Controller
     {
         // Show workout with id that has been given in the web.php routes
         $workout = workouts::find($workout_id);
+        $exercises = exercises::paginate(15);
         
         return view('workout_exercise_overview', [
             'workout' => $workout,
-            'exercise' => $workout->exercises
+            'workout_exercise' => $workout->exercises,
+            'exercise' => $exercises
         ]);
     }
 
@@ -49,9 +53,7 @@ class WorkoutController extends Controller
 
     public function destroy(Request $request)
     {
-        $workout = workouts::find($request->id);
-        $workout->delete();
-
+        workouts::destroy($request->id);
         return redirect()->route('workout.index');
     }
 }

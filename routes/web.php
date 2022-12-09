@@ -43,17 +43,15 @@ Route::middleware('auth')->group(function () {
 // Workout (Overview, Create, Update, Delete, Singular)
 Route::middleware('auth')->group(function () {
     Route::get('/workout', [App\Http\Controllers\WorkoutController::class, 'index'])->name('workout.index');
+    Route::get('/workout/{id}', [App\Http\Controllers\WorkoutController::class, 'show'])->name('workout.show');
     Route::post('/workout', [App\Http\Controllers\WorkoutController::class, 'create'])->name('workout.create');
     Route::patch('/workout', [App\Http\Controllers\WorkoutController::class, 'update'])->name('workout.update');
     Route::delete('/workout', [App\Http\Controllers\WorkoutController::class, 'destroy'])->name('workout.destroy');
-    Route::get('/workout/{id}', [App\Http\Controllers\WorkoutController::class, 'show'])->name('workout.show');
 });
 
-// Workout (Overview, Singular, Create, Update, Edit)
+// Add exercises to exercise_workouts (pivot table) to save to scheme
 Route::middleware('auth')->group(function () {
-    Route::get([App\Http\Controllers\WorkoutController::class, 'index'])->name('exercise_workout.index');
+    Route::post('exercise_workouts', [App\Http\Controllers\ExerciseWorkout::class, 'create'])->name('exercise_workouts.create');
 });
-
-
 
 require __DIR__.'/auth.php';

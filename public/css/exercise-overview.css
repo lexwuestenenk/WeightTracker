@@ -34,3 +34,16 @@
     align-items: center;
     text-align: center;
 }
+
+.header-div {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-grow: 1;
+}
