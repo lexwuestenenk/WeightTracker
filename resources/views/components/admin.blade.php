@@ -32,7 +32,14 @@
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+                <div class="admin-content">
+                    <div class="admin-content-left-nav">
+                        @include('layouts.admin-nav')
+                    </div>
+                    <div class="admin-content-area">
+                        {{ $slot }}
+                    </div>
+                </div>
             </main>
         </div>
     </body>

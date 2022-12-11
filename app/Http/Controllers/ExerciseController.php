@@ -24,4 +24,14 @@ class ExerciseController extends Controller
             'workout' => workouts::where('user_id', Auth::user()->id)->get()
         ]);
     }
+
+    public function create(Request $request)
+    {
+        exercises::create([
+            'name' => $request->name,
+            'description' => $request->description,
+        ]);
+
+        return redirect()->route('admin-users.exercise');
+    }
 }

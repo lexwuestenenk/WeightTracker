@@ -54,8 +54,14 @@ Route::middleware('auth')->group(function () {
     Route::post('exercise_workouts', [App\Http\Controllers\ExerciseWorkout::class, 'create'])->name('exercise_workouts.create');
 });
 
+// Main admin page
 Route::middleware('admin')->group(function () {
     Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.index');
+});
+
+// Admin users page
+Route::middleware('admin')->group(function () {
+    Route::get('/admin/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
 });
 
 require __DIR__.'/auth.php';
