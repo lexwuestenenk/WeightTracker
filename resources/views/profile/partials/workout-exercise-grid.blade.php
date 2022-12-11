@@ -19,7 +19,7 @@
             </div>
         </div>
         <x-modal id="test" class="modal-dialog modal-lg" size="xl" name="add-exercise-to-workout" focusable>
-            <h2 class="text-lg font-medium text-gray-900 px-6 pt-6">Exercises</h2>
+            <h2 class="text-lg font-medium px-6 pt-6 text-gray-900 dark:text-white">Exercises</h2>
 
             <p class="mt-1 text-sm text-gray-600 px-6 mb-6">
                 {{ __('Add exercises to your workout') }}

@@ -10,6 +10,7 @@ use App\Models\workouts;
 
 class WorkoutController extends Controller
 {
+    // Workout overview
     public function index(Request $request)
     {
         return view('workout_overview', [
@@ -17,11 +18,11 @@ class WorkoutController extends Controller
         ]);
     }
 
+    // Show exercises in workout (details)
     public function show($workout_id)
     {
-        // Show workout with id that has been given in the web.php routes
         $workout = workouts::find($workout_id);
-        $exercises = exercises::paginate(15);
+        $exercises = exercises::all();
         
         return view('workout_exercise_overview', [
             'workout' => $workout,

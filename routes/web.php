@@ -54,4 +54,8 @@ Route::middleware('auth')->group(function () {
     Route::post('exercise_workouts', [App\Http\Controllers\ExerciseWorkout::class, 'create'])->name('exercise_workouts.create');
 });
 
+Route::middleware('admin')->group(function () {
+    Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.index');
+});
+
 require __DIR__.'/auth.php';
