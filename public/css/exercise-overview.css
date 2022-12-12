@@ -1,5 +1,6 @@
 .exercise-grid {
     display: grid;
+    min-width: 100%;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-auto-rows: 1fr;
     grid-gap: 3rem;
@@ -11,25 +12,96 @@
     min-height: 20rem;
     max-height: 20rem;
     overflow: hidden;
-    text-overflow: clip;
+    text-overflow: wrap;
+    overflow-wrap: break-word;
 }
 
 .log-row {
     justify-content: center;
     align-items: center;
-    text-align: center;
-    border-bottom: 1px solid rgba(240, 83, 64, 0.2)
+    border-bottom: 1px solid rgba(240, 83, 64, 0.2);
+    width: 65vw;
+    color: white;
 }
 
 .log-row:hover {
     justify-content: center;
     align-items: center;
-    text-align: center;
     background-color: rgba(240, 83, 64, 0.2);
 }
 
 .log-row-item {
-    justify-content: center;
     align-items: center;
+    min-width: 33%;
+}
+
+.header-div {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-grow: 1;
+}
+
+.admin-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.admin-content-area {
+    display: flex;
+    justify-content: center;
+    flex-grow: 3;
+}
+
+.admin-content-left-nav {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    background-color: #111827;
+    margin-top: 5px #111827 solid;
+    overflow: auto;
+}
+
+.admin-content-left-nav-item {
+    display: flex;
+    width: 100%;
+    height: 5vh;
+    color: white;
     text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-card {
+    display: flex;
+    width: 75vw;
+    padding-top: 1rem;
+    padding-right: 2rem;
+    padding-bottom: 1rem;
+    padding-left: 2rem;
+    background-color: #1F2937;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+}
+
+.admin-card-left {
+    display: flex;
+    width: 60vw;
+    align-items: center;
+}
+
+.admin-card-right {
+    display: flex;
+    width: 15vw;
+    align-items: center;
+}
+
+.header {
+    margin-top: 1rem;
 }

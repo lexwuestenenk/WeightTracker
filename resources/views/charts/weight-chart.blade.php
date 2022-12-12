@@ -19,6 +19,7 @@
         let weight_chart_data = JSON.parse(document.getElementById('weightChartValue').value)
         let weight_labels = [];
         let weight = [];
+        
         weight_chart_data.forEach(element => {
           let date = element.date.split('T')
           weight_labels.push(date[0])

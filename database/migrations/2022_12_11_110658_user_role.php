@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('exercise_workouts', function (Blueprint $table) {
-            $table->foreignId('workout_id')->constrained()->onDelete('cascade');
-            $table->foreignId('exercise_id')->constrained()->onDelete('cascade');
+        Schema::create('user_role', function (Blueprint $table) {
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('role_id')->constrained();
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('exercise_workouts');
+        Schema::dropIfExists('user_role');
     }
 };

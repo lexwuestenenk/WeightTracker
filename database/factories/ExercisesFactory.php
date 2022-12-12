@@ -17,7 +17,8 @@ class ExercisesFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => fake()->name(),
+            'description' => fake()->paragraph($nbSentences=3, $variableNbSentences=true)
         ];
     }
 }
