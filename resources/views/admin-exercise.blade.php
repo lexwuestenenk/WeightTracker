@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="admin-card">
-            <div class="bg-gray-100 dark:bg-gray-800 p-4 sm:p-8 shadow sm:rounded-lg grow">
+            <div class="bg-gray-100 dark:bg-gray-800 p-4 sm:p-8 shadow sm:rounded-lg" style="width: 75vw;">
                 <div class="text-gray-600 dark:text-gray-400">
                     @include('profile.partials.exercise-grid')
                 </div>
