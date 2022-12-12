@@ -1,5 +1,5 @@
 <section>
-    <header>
+    <header class="header">
         <h2 class="text-lg g-white text-gray-900 dark:text-white">
             {{ __('Exercises') }}
         </h2>
@@ -24,4 +24,5 @@
             @endforeach
         </div>
     </header>
+    {{ $exercise->links() }}
 </section>

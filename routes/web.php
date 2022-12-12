@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
 });
@@ -54,14 +55,21 @@ Route::middleware('auth')->group(function () {
     Route::post('exercise_workouts', [App\Http\Controllers\ExerciseWorkout::class, 'create'])->name('exercise_workouts.create');
 });
 
-// Main admin page
-Route::middleware('admin')->group(function () {
-    Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.index');
-});
-
 // Admin users page
 Route::middleware('admin')->group(function () {
     Route::get('/admin/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
+    Route::post('/admin/users', [App\Http\Controllers\UserController::class, 'create'])->name('users.create');
+});
+
+// Admin exercises page
+Route::middleware('admin')->group(function () {
+    Route::get('/admin/exercises', [App\Http\Controllers\AdminExerciseController::class, 'index'])->name('admin-exercises.index');
+    Route::get('/exercise/{id}', [App\Http\Controllers\AdminExerciseController::class, 'show'])->name('admin-exercises.show');
+    Route::post('/admin/exercises', [App\Http\Controllers\AdminExerciseController::class, 'create'])->name('admin-exercises.create');
+});
+
+Route::middleware('admin')->group(function () {
+    Route::get('/admin/workouts', [App\Http\Controllers\AdminWorkoutController::class, 'index'])->name('admin-workouts.index');
 });
 
 require __DIR__.'/auth.php';

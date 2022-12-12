@@ -13,7 +13,7 @@ class ExerciseController extends Controller
     public function index(Request $request)
     {
         return view('exercise_overview', [
-            'exercise' => exercises::all(),
+            'exercise' => exercises::paginate(15),
         ]);
     }
 
@@ -25,13 +25,4 @@ class ExerciseController extends Controller
         ]);
     }
 
-    public function create(Request $request)
-    {
-        exercises::create([
-            'name' => $request->name,
-            'description' => $request->description,
-        ]);
-
-        return redirect()->route('admin-users.exercise');
-    }
 }

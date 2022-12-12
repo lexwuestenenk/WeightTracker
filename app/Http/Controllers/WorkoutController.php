@@ -31,6 +31,7 @@ class WorkoutController extends Controller
         ]);
     }
 
+    // Create new workout
     public function create(Request $request)
     {
         workouts::create([
@@ -42,6 +43,7 @@ class WorkoutController extends Controller
         return redirect()->route('workout.index');
     }
 
+    // Update existing workout
     public function update(Request $request)
     {
         $workout = workouts::find($request->id);
@@ -52,6 +54,7 @@ class WorkoutController extends Controller
         return redirect()->route('workout.index');
     }
 
+    // Delete existing workout
     public function destroy(Request $request)
     {
         workouts::destroy($request->id);

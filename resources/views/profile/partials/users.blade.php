@@ -10,7 +10,7 @@
     </header>
 
     <div class="container mb-6">
-        @foreach ($users_paginated as $u)
+        @foreach ($user as $u)
             <div class="flex flex-row h-10 log-row">
                 <div class="pr-6 flex grow log-row-item" name="id">
                     ID: {{ $u->id }}
@@ -25,7 +25,7 @@
         @endforeach
     </div>
 
-    {{ $users_paginated->links() }}
+    {{ $user->links() }}
 
     <form id="send-verification" method="post" action="{{ route('verification.send') }}">
         @csrf
