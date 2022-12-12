@@ -20,11 +20,30 @@
     justify-content: center;
     align-items: center;
     border-bottom: 1px solid rgba(240, 83, 64, 0.2);
-    width: 65vw;
+    padding: 0.5rem;
+    font-size: 20px;
+    min-width: 100%;
     color: white;
 }
 
+.log-row-users {
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(240, 83, 64, 0.2);
+    padding: 0.5rem;
+    font-size: 20px;
+    width: 70vw;
+    color: white;
+}
+
+
 .log-row:hover {
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(240, 83, 64, 0.2);
+}
+
+.log-row-users:hover {
     justify-content: center;
     align-items: center;
     background-color: rgba(240, 83, 64, 0.2);

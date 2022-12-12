@@ -15,14 +15,6 @@
                     Total users: {{ count( $user_count )}}
                 </div>
             </div>
-            <div class="admin-card-right">
-                <x-primary-button
-                    class="mt-3 mb-6"
-                    style="height: 2rem;"
-                    x-data=""
-                    x-on:click.prevent="$dispatch('open-modal', 'create-new-user')"
-                >{{ __('Create new user') }}</x-primary-button>
-            </div>
         </div>
         <div class="admin-card">
             @include('charts.user-chart')
