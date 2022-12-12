@@ -10,16 +10,16 @@
     </header>
 
     <div>
-        <canvas id="userChart"></canvas>
-        <input id="userChartValue" type="hidden" value={{ $users_per_month }}></input>
+        <canvas id="workoutChart"></canvas>
+        <input id="workoutChartValue" type="hidden" value={{ $workouts_per_month }}></input>
     </div>
 
     <script>
         // Get data from input field in HTML code (userChartValue). This is fine, as it's not data that needs to be secure.
-        const userChart = document.getElementById('userChart')
-        let user_chart_data = JSON.parse(document.getElementById('userChartValue').value)
-        let user_chart_data_sorted = []
-        let data = Object.values(user_chart_data)
+        const workoutChart = document.getElementById('workoutChart')
+        let workout_chart_data = JSON.parse(document.getElementById('workoutChartValue').value)
+        let workout_chart_data_sorted = []
+        let data = Object.values(workout_chart_data)
 
         // Create array with monthnames to turn month id (0-11) into month name
         const monthNames = ["January", "February", "March", "April", "May", "June",
@@ -28,26 +28,26 @@
 
         // Create objects with month number && amount of new users
         data.forEach(item => {
-          user_chart_data_sorted.push({'x': new Date(item[0].created_at).getMonth(), 'y': item.length }) 
+            workout_chart_data_sorted.push({'x': new Date(item[0].created_at).getMonth(), 'y': item.length }) 
         })
 
         // Sort month based on month number 0-11
-        user_chart_data_sorted.sort(({x:a}, {x:b}) => a-b);
+        workout_chart_data_sorted.sort(({x:a}, {x:b}) => a-b);
 
         let labels = []
-        let user_data = []
+        let workout_data = []
 
-        user_chart_data_sorted.forEach(item => { labels.push(monthNames[item.x]) })
-        user_chart_data_sorted.forEach(item => user_data.push(item.y))
+        workout_chart_data_sorted.forEach(item => { labels.push(monthNames[item.x]) })
+        workout_chart_data_sorted.forEach(item => workout_data.push(item.y))
 
-        new Chart(userChart, {
+        new Chart(workoutChart, {
           type: 'line',
           data: {
             labels: labels,
             datasets: [{
-              label: 'Users per month',
+              label: 'Workouts per month',
               fill: true,
-              data: user_data,
+              data: workout_data,
               borderWidth: 1,
               tension: 0.3,
               color: 'rgba(57, 255, 20, 0.8)',
@@ -65,7 +65,7 @@
             scales: {
               y: {
                 suggestedMin: (0),
-                suggestedMax: (Math.max(...user_data) * 2),
+                suggestedMax: (Math.max(...workout_data) * 2),
               }
             }
           }

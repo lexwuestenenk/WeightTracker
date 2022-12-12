@@ -33,7 +33,7 @@
                 </div>
                 @if(Auth::user()->isAdministrator())
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.index')">
+                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
                         <p class="text-gray-900 dark:text-white">{{ __('Admin') }}</p>
                     </x-nav-link>
                 </div>
@@ -102,7 +102,7 @@
                 {{ __('User') }}
             </x-responsive-nav-link>
             @if(Auth::user()->isAdministrator())
-                <x-responsive-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.index')">
+                <x-responsive-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
                     {{ __('Admin') }}
                 </x-responsive-nav-link>
             @endif

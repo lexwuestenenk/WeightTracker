@@ -105,7 +105,7 @@
                                         {{ __('Cancel') }}
                                     </x-secondary-button>
                                     <div class="flex items-center gap-4 ml-3">
-                                        <x-primary-button>{{ __('Delete workout') }}</x-primary-button>
+                                        <x-primary-button>{{ __('Update workout') }}</x-primary-button>
                                     </div>
                                 </div>
                             </form>

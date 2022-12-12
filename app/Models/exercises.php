@@ -8,5 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class exercises extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['name','description', 'updated_at', 'created_at'];
 }
 
