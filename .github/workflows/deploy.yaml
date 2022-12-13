@@ -21,4 +21,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           port: ${{ secrets.PORT }}
           key: ${{ secrets.SSHKEY }}
-          script: "cd /var/html/www/fitness-app && ./.scripts/deploy.sh"
+          script: "cd /var/html/www/fitness-app && .scripts/deploy.sh"
