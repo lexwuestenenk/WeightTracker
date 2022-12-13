@@ -21,4 +21,26 @@ jobs:
           username: ${{ secrets.USERNAME }}
           port: ${{ secrets.PORT }}
           key: ${{ secrets.SSHKEY }}
-          script: "cd /var/html/www/ && ./.scripts/deploy.sh"
+          script: |
+            #!/bin/bash
+            set -e
+
+            echo "Deployment started ..."
+
+            (php artisan down) || true
+
+            git pull origin main
+
+            composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+
+            php artisan clear-compiled
+
+            php artisan optimize
+
+            npm run prod
+
+            php artisan migrate --force
+
+            php artisan up
+
+            echo "Deployment finished!"
