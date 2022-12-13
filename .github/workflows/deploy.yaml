@@ -21,8 +21,10 @@ jobs:
           username: ${{ secrets.USERNAME }}
           port: ${{ secrets.PORT }}
           key: ${{ secrets.SSHKEY }}
-          script: |
+          script: |            
             #!/bin/bash
+            cd var/html/www/fitness-app
+            
             set -e
 
             echo "Deployment started ..."
