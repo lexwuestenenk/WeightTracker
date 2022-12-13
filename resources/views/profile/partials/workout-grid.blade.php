@@ -99,7 +99,7 @@
                                     <x-text-input id="description" name="description" type="text" class="mt-1 block w-full" :value="old('description', $w->description)" required autofocus autocomplete="length" />
                                     <x-input-error class="mt-2" :messages="$errors->get('description')" />
                                 </div>
-                
+
                                 <div class="mt-6 flex justify-end">
                                     <x-secondary-button x-on:click="$dispatch('close')">
                                         {{ __('Cancel') }}
