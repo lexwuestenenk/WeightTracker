@@ -18,7 +18,7 @@
 .log-row {
     justify-content: center;
     align-items: center;
-    border-bottom: 2px solid rgba(240, 83, 64, 0.2)
+    border-bottom: 1px solid rgba(240, 83, 64, 0.2)
 }
 
 .log-row:hover {
