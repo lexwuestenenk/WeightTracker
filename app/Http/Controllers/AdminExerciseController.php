@@ -33,6 +33,6 @@ class AdminExerciseController extends Controller
             'description' => $request->description,
         ]);
 
-        return redirect()->route('admin-exercises.index');
+        return redirect()->route('admin-exercises.index')->with('status', 'Exercise has been created!');
     }
 }

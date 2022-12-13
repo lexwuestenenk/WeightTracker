@@ -40,7 +40,7 @@ class WorkoutController extends Controller
             'user_id' => Auth::user()->id
         ]);
 
-        return redirect()->route('workout.index');
+        return redirect()->route('workout.index')->with('status', 'Workout has been created!');
     }
 
     // Update existing workout
@@ -51,13 +51,13 @@ class WorkoutController extends Controller
         $workout->description = $request->description;
         $workout->save();
 
-        return redirect()->route('workout.index');
+        return redirect()->route('workout.index')->with('status', 'Workout has been updated!');
     }
 
     // Delete existing workout
     public function destroy(Request $request)
     {
         workouts::destroy($request->id);
-        return redirect()->route('workout.index');
+        return redirect()->route('workout.index')->with('status', 'Workout has been deleted!');
     }
 }

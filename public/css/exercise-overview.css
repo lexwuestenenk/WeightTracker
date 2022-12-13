@@ -21,7 +21,6 @@
     align-items: center;
     border-bottom: 1px solid rgba(240, 83, 64, 0.2);
     padding: 0.5rem;
-    font-size: 20px;
     min-width: 100%;
     color: white;
 }
@@ -31,7 +30,6 @@
     align-items: center;
     border-bottom: 1px solid rgba(240, 83, 64, 0.2);
     padding: 0.5rem;
-    font-size: 20px;
     width: 70vw;
     color: white;
 }
@@ -123,4 +121,30 @@
 
 .header {
     margin-top: 1rem;
+}
+
+@keyframes status-alert-animation {
+    from { top: -5%; }
+    to { top: 5%; display: none;}
+}
+
+.status-alert {
+    display: flex;
+    position: absolute;
+    max-height: fit-content;
+    height: 2vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    align-items: center;
+    z-index: 100;
+    background-color: greenyellow;
+    opacity: 0.8;
+    padding: 2rem;
+    border-radius: 15px;
+    animation-name: status-alert-animation;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 2;
+    animation-direction: alternate;
 }

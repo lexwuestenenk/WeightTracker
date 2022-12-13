@@ -22,5 +22,8 @@ class ExerciseWorkout extends Controller
     public function destroy(Request $request)
     {
         exercise_workouts::destroy($request->id);
+        return redirect()->back()->with('status', 'Workout has been deleted!');
     }
+
+    
 }
