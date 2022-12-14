@@ -21,14 +21,19 @@ class WorkoutController extends Controller
     // Show exercises in workout (details)
     public function show($workout_id)
     {
-        $workout = workouts::find($workout_id);
-        $exercises = exercises::all();
+        if (workouts::where('user_id', Auth::user()->id)->where('id', $workout_id)->get()->isNotEmpty())
+        {
+            $workout = workouts::find($workout_id);
+            $exercises = exercises::all();
+            
+            return view('workout_exercise_overview', [
+                'workout' => $workout,
+                'workout_exercise' => $workout->exercises,
+                'exercise' => $exercises
+            ]);
+        }
         
-        return view('workout_exercise_overview', [
-            'workout' => $workout,
-            'workout_exercise' => $workout->exercises,
-            'exercise' => $exercises
-        ]);
+        return redirect()->route('dashboard.index')->with('status', "That's not your workout!");
     }
 
     // Create new workout
@@ -46,7 +51,7 @@ class WorkoutController extends Controller
     // Update existing workout
     public function update(Request $request)
     {
-        if(workouts::where('user_id', Auth::user()->id)->where('id', $request->id))
+        if(workouts::where('user_id', Auth::user()->id)->where('id', $request->id)->get()->isNotEmpty())
         {
             $workout = workouts::find($request->id);
             $workout->name = $request->name;
@@ -66,6 +71,7 @@ class WorkoutController extends Controller
             workouts::where('user_id', Auth::user()->id)->where('id', $request->id)->first()->delete();
             return redirect()->back()->with('status', 'Workout has been deleted!');
         }
+
         return redirect()->back()->with('status', 'Nice try ;)');
     }
 }
