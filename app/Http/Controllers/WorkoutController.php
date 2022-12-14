@@ -46,24 +46,26 @@ class WorkoutController extends Controller
     // Update existing workout
     public function update(Request $request)
     {
-        $workout = workouts::find($request->id);
-        $workout->name = $request->name;
-        $workout->description = $request->description;
-        $workout->save();
-
-        return redirect()->route('workout.index')->with('status', 'Workout has been updated!');
+        if(workouts::where('user_id', Auth::user()->id)->where('id', $request->id))
+        {
+            $workout = workouts::find($request->id);
+            $workout->name = $request->name;
+            $workout->description = $request->description;
+            $workout->save();
+    
+            return redirect()->route('workout.index')->with('status', 'Workout has been updated!');        
+        }
+        return redirect()->back()->with('status', 'Nice try ;)');
     }
 
     // Delete existing workout
     public function destroy(Request $request)
     {
-        if(workouts::where('user_id', Auth::user()->id)->where('id', $request->id)->first()->delete())
+        if(workouts::where('user_id', Auth::user()->id)->where('id', $request->id)->get()->isNotEmpty())
         {
+            workouts::where('user_id', Auth::user()->id)->where('id', $request->id)->first()->delete();
             return redirect()->back()->with('status', 'Workout has been deleted!');
         }
-        else
-        {
-            return redirect()->back()->with('status', 'Stop deleting other peoples shit!');
-        }
+        return redirect()->back()->with('status', 'Nice try ;)');
     }
 }
