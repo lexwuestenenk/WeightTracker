@@ -124,8 +124,10 @@
 }
 
 @keyframes status-alert-animation {
-    from { top: -5%; }
-    to { top: 5%; display: none;}
+    0% { top: -5%; visibility: hidden; }
+    1% {top: -5%; visibility:visible; }
+    50% { top: 5vh; }
+    100% { top: 5vh;}
 }
 
 .status-alert {

@@ -111,9 +111,9 @@
                             </form>
                         </x-modal>
 
-                        {{-- Delete workout using the workout.delete route 
+                            <!-- Delete workout using the workout.delete route 
                             This function opens up a modal that asks the user to verify
-                            they want to delete the workout--}}
+                            they want to delete the workout -->
                         <x-primary-button
                             class="mt-3 mb-3"
                             x-data=""
