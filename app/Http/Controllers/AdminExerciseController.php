@@ -28,9 +28,19 @@ class AdminExerciseController extends Controller
 
     public function create(Request $request)
     {
+        $filename = "";
+        
+        if($request->file('image'))
+        {
+            $file = $request->file('image');
+            $filename = date('YmdHi').$file->getClientOriginalName();
+            $file->move(public_path('public/image'), $filename);
+        }
+
         exercises::create([
             'name' => $request->name,
             'description' => $request->description,
+            'image' => $filename,
         ]);
 
         return redirect()->route('admin-exercises.index')->with('status', 'Exercise has been created!');

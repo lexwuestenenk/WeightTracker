@@ -1,11 +1,11 @@
 <section class="w-full">
     <header>
         <h2 class="text-gray-900 dark:text-white">
-            {{ __('User chart') }}
+            {{ __('Workout chart') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            {{ __('Displays users per month') }}
+            {{ __('Displays new workouts per month') }}
         </p>
     </header>
 
