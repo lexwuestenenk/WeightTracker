@@ -35,38 +35,4 @@ class UserController extends Controller
             'users_per_month' => $users_per_month,
         ]);
     }
-
-    public function create(Request $request) {
-        dd($request);
-
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
-
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
-
-        event(new Registered($user));
-
-        user_weight::create([
-            'user_id' => Auth::user()->id,
-        ]);
-
-        personal_information::create([
-            'user_id' => Auth::user()->id,
-        ]);
-
-        return view('users.index');
-    }
-
-
-    public function destroy(Request $request)
-    {   
-        
-    }
 }

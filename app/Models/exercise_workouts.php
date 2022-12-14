@@ -9,6 +9,6 @@ class exercise_workouts extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['workout_id', 'exercise_id', 'updated_at', 'created_at'];
+    protected $fillable = ['workout_id', 'exercise_id', 'user_id', 'updated_at', 'created_at'];
 }
 

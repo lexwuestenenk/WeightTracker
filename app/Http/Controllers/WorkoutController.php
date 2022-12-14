@@ -57,7 +57,13 @@ class WorkoutController extends Controller
     // Delete existing workout
     public function destroy(Request $request)
     {
-        workouts::destroy($request->id);
-        return redirect()->route('workout.index')->with('status', 'Workout has been deleted!');
+        if(workouts::where('user_id', Auth::user()->id)->where('id', $request->id)->first()->delete())
+        {
+            return redirect()->back()->with('status', 'Workout has been deleted!');
+        }
+        else
+        {
+            return redirect()->back()->with('status', 'Stop deleting other peoples shit!');
+        }
     }
 }
