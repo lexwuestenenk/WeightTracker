@@ -6,7 +6,7 @@
     </p>
 
     <!-- Form used to create new workouts -->
-    <form method="post" action="{{ route('admin-exercises.create') }}" class="p-6">
+    <form method="post" action="{{ route('admin-exercises.create') }}" class="p-6" enctype="multipart/form-data">
         @csrf
         @method('post')
 
@@ -20,6 +20,12 @@
             <x-input-label for="description" class="text-gray-900 text-gray-900 dark:text-white" :value="__('Exercise Description')" />
             <x-text-input id="description" name="description" type="text" class="mt-1 block w-full" required autofocus autocomplete="description" />
             <x-input-error class="mt-2" :messages="$errors->get('description')" />
+        </div>
+
+        <div>
+            <x-input-label for="image" class="text-gray-900 text-gray-900 dark:text-white" :value="__('Exercise Image')" />
+            <x-text-input id="image" name="image" type="file" class="mt-1 block w-full" required autofocus autocomplete="image" />
+            <x-input-error class="mt-2" :messages="$errors->get('image')" />
         </div>
 
         <div class="mt-6 flex justify-end">

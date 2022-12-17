@@ -12,28 +12,28 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard.index')" :active="request()->routeIs('dashboard.index')">
+                    <x-nav-link :href="route('dashboard.index')" :active="request()->routeIs('dashboard.index')" data-cy="dashboard">
                         <p class="text-gray-900 dark:text-white">{{ __('Dashboard') }}</p>
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('exercise.index')" :active="request()->routeIs('exercise.index')">
+                    <x-nav-link :href="route('exercise.index')" :active="request()->routeIs('exercise.index')" data-cy="exercise">
                         <p class="text-gray-900 dark:text-white">{{ __('Exercises') }}</p>
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('workout.index')" :active="request()->routeIs('workout.index')">
+                    <x-nav-link :href="route('workout.index')" :active="request()->routeIs('workout.index')" data-cy="workout">
                         <p class="text-gray-900 dark:text-white">{{ __('Workouts') }}</p>
                     </x--admin-0nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('user-info.index')" :active="request()->routeIs('user-info.index')">
+                    <x-nav-link :href="route('user-info.index')" :active="request()->routeIs('user-info.index')" data-cy="user">
                         <p class="text-gray-900 dark:text-white">{{ __('User') }}</p>
                     </x-nav-link>
                 </div>
                 @if(Auth::user()->isAdministrator())
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
+                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')" data-cy="admin">
                         <p class="text-gray-900 dark:text-white">{{ __('Admin') }}</p>
                     </x-nav-link>
                 </div>
