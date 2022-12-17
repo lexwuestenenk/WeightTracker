@@ -41,6 +41,6 @@ class UserHealthController extends Controller
             ]
         );
 
-        return redirect('/user-info')->with('status', 'Health information has been updated!'); 
+        return redirect()->back()->with('status', 'Health information has been updated!'); 
     }
 }

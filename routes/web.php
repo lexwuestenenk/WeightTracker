@@ -53,6 +53,7 @@ Route::middleware('auth')->group(function () {
 // Add exercises to exercise_workouts (pivot table) to save to scheme
 Route::middleware('auth')->group(function () {
     Route::post('exercise_workouts', [App\Http\Controllers\ExerciseWorkout::class, 'create'])->name('exercise_workouts.create');
+    Route::delete('exercise_workouts', [App\Http\Controllers\ExerciseWorkout::class, 'destroy'])->name('exercise_workouts.destroy');
 });
 
 // Admin users page
@@ -66,10 +67,6 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/exercises', [App\Http\Controllers\AdminExerciseController::class, 'index'])->name('admin-exercises.index');
     Route::get('/exercise/{id}', [App\Http\Controllers\AdminExerciseController::class, 'show'])->name('admin-exercises.show');
     Route::post('/admin/exercises', [App\Http\Controllers\AdminExerciseController::class, 'create'])->name('admin-exercises.create');
-});
-
-Route::middleware('admin')->group(function () {
-    Route::get('/admin/workouts', [App\Http\Controllers\AdminWorkoutController::class, 'index'])->name('admin-workouts.index');
 });
 
 require __DIR__.'/auth.php';
