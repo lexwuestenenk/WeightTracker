@@ -31,8 +31,8 @@ Route::middleware('auth')->group(function () {
 
 // User health information
 Route::middleware('auth')->group(function () {
-    Route::get('/user-info', [App\Http\Controllers\UserHealthController::class, 'index'])->name('user-info.index');
-    Route::patch('/user-info', [App\Http\Controllers\UserHealthController::class, 'update'])->name('user-info.update');
+    Route::get('/user', [App\Http\Controllers\UserHealthController::class, 'index'])->name('user-info.index');
+    Route::patch('/user', [App\Http\Controllers\UserHealthController::class, 'update'])->name('user-info.update');
 });
 
 // Exercises (Overview & Singular)
@@ -67,6 +67,11 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/exercises', [App\Http\Controllers\AdminExerciseController::class, 'index'])->name('admin-exercises.index');
     Route::get('/exercise/{id}', [App\Http\Controllers\AdminExerciseController::class, 'show'])->name('admin-exercises.show');
     Route::post('/admin/exercises', [App\Http\Controllers\AdminExerciseController::class, 'create'])->name('admin-exercises.create');
+});
+
+// Admin exercises page
+Route::middleware('admin')->group(function () {
+    Route::get('/admin/workouts', [App\Http\Controllers\AdminWorkoutController::class, 'index'])->name('admin-workouts.index');
 });
 
 require __DIR__.'/auth.php';

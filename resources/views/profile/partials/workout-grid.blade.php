@@ -14,6 +14,7 @@
                 <x-primary-button
                     class="mt-3 mb-6"
                     x-data=""
+                    data-cy="workout-create"
                     x-on:click.prevent="$dispatch('open-modal', 'create-new-workout')"
                 >{{ __('Create new workout') }}</x-primary-button>
             </div>
@@ -26,28 +27,28 @@
             </p>
 
             <!-- Form used to create new workouts -->
-            <form method="post" action="{{ route('workout.create') }}" class="p-6">
+            <form method="post" action="{{ route('workout.create') }}" class="p-6" data-cy="workout-create-form">
                 @csrf
                 @method('post')
 
                 <div class="mb-6">
                     <x-input-label for="name" class="text-gray-900 text-gray-900 dark:text-white" :value="__('Workout Name')" />
-                    <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" required autofocus autocomplete="name" />
+                    <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" data-cy="name" required autofocus autocomplete="name" />
                     <x-input-error class="mt-2" :messages="$errors->get('name')" />
                 </div>
 
                 <div>
                     <x-input-label for="description" class="text-gray-900 text-gray-900 dark:text-white" :value="__('Workout Description')" />
-                    <x-text-input id="description" name="description" type="text" class="mt-1 block w-full" required autofocus autocomplete="description" />
+                    <x-text-input id="description" name="description" type="text" class="mt-1 block w-full" data-cy="description" required autofocus autocomplete="description" />
                     <x-input-error class="mt-2" :messages="$errors->get('description')" />
                 </div>
 
                 <div class="mt-6 flex justify-end">
-                    <x-secondary-button x-on:click="$dispatch('close')">
+                    <x-secondary-button x-on:click="$dispatch('close')" data-cy="cancel">
                         {{ __('Cancel') }}
                     </x-secondary-button>
                     <div class="flex items-center gap-4 ml-3">
-                        <x-primary-button>{{ __('Create new workout') }}</x-primary-button>
+                        <x-primary-button data-cy="submit">{{ __('Create new workout') }}</x-primary-button>
                     </div>
                 </div>
             </form>
@@ -68,6 +69,7 @@
                         <x-primary-button
                             class="mt-3 mb-3 mr-3"
                             x-data=""
+                            data-cy="workout-edit"
                             x-on:click.prevent="$dispatch('open-modal', 'edit-workout-{{ $w->id }}')"
                         ><i class="fa-solid fa-pencil"></i></x-primary-button>
             
@@ -81,7 +83,7 @@
                             {{-- Update workout using the workout.update route 
                                 This function opens up a modal that asks the user to verify
                                 they want to delete the workout--}}
-                            <form method="post" action="{{ route('workout.update') }}" class="p-6">
+                            <form method="post" action="{{ route('workout.update') }}" class="p-6" data-cy="workout-update-form">
                                 @csrf
                                 @method('patch')
                 
@@ -90,21 +92,21 @@
                                 </div>
                                 <div>
                                     <x-input-label class="g-white text-gray-900 dark:text-white" for="name" :value="__('Name')" />
-                                    <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $w->name)" required autofocus autocomplete="age" />
+                                    <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" data-cy="name" :value="old('name', $w->name)" required autofocus autocomplete="age" />
                                     <x-input-error class="mt-2" :messages="$errors->get('age')" />
                                 </div>
                             
                                 <div>
                                     <x-input-label class="g-white text-gray-900 dark:text-white" for="description" :value="__('Length (CM)')" />
-                                    <x-text-input id="description" name="description" type="text" class="mt-1 block w-full" :value="old('description', $w->description)" required autofocus autocomplete="length" />
+                                    <x-text-input id="description" name="description" type="text" class="mt-1 block w-full" data-cy="descriptiob" :value="old('description', $w->description)" required autofocus autocomplete="length" />
                                     <x-input-error class="mt-2" :messages="$errors->get('description')" />
                                 </div>
 
                                 <div class="mt-6 flex justify-end">
-                                    <x-secondary-button x-on:click="$dispatch('close')">
+                                    <x-secondary-button x-on:click="$dispatch('close')" data-cy="cancel">
                                         {{ __('Cancel') }}
                                     </x-secondary-button>
-                                    <div class="flex items-center gap-4 ml-3">
+                                    <div class="flex items-center gap-4 ml-3" data-cy="submit">
                                         <x-primary-button>{{ __('Update workout') }}</x-primary-button>
                                     </div>
                                 </div>
@@ -117,6 +119,7 @@
                         <x-primary-button
                             class="mt-3 mb-3"
                             x-data=""
+                            data-cy="workout-delete"
                             x-on:click.prevent="$dispatch('open-modal', 'delete-workout-{{ $w->id }}')"
                         ><i class="fa-solid fa-trash-can"></i></x-primary-button>
             
@@ -128,7 +131,7 @@
                             </p>
 
                             <!-- Form used to create new workouts -->
-                            <form method="post" action="{{ route('workout.destroy') }}" class="p-6">
+                            <form method="post" action="{{ route('workout.destroy') }}" class="p-6" data-cy="workout-delete-form">
                                 @csrf
                                 @method('delete')
                 
@@ -137,10 +140,10 @@
                                 </div>
                 
                                 <div class="mt-6 flex justify-end">
-                                    <x-secondary-button x-on:click="$dispatch('close')">
+                                    <x-secondary-button x-on:click="$dispatch('close')" data-cy="cancel">
                                         {{ __('Cancel') }}
                                     </x-secondary-button>
-                                    <div class="flex items-center gap-4 ml-3">
+                                    <div class="flex items-center gap-4 ml-3" data-cy="submit">
                                         <x-primary-button>{{ __('Delete workout') }}</x-primary-button>
                                     </div>
                                 </div>

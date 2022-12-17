@@ -32,7 +32,7 @@ class ExerciseWorkout extends Controller
         // Otherwise, deny the request.
         if(exercise_workouts::where('workout_id', $request->workout_id)->where('user_id', Auth::user()->id)->where('exercise_id', $request->exercise_id)->get()->isNotEmpty())
         {
-            exercise_workouts::where('workout_Stid', $request->workout_id)->where('user_id', Auth::user()->id)->where('exercise_id', $request->exercise_id)->delete();
+            exercise_workouts::where('workout_id', $request->workout_id)->where('user_id', Auth::user()->id)->where('exercise_id', $request->exercise_id)->delete();
             return redirect()->back()->with('status', 'Exercise has been deleted from your workout!');
         }
 

@@ -19,7 +19,7 @@
     </head>
     <body class="font-sans antialiased">
         @if (session('status'))
-            <div class="status-alert">
+            <div class="status-alert" data-cy="status-alert">
                 {{ session('status') }}
             </div>
         @endif
