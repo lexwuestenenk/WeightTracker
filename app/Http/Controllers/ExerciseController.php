@@ -12,9 +12,18 @@ class ExerciseController extends Controller
 {
     public function index(Request $request)
     {
-        return view('exercise_overview', [
-            'exercise' => exercises::paginate(15),
-        ]);
+        if($request->query('query')) {
+            $exercise = exercises::where('name', $request->query('query'))
+                ->orWhere('description', $request->query('query'));
+
+            return view('exercise_overview', [
+                'exercise' => $exercise->paginate(15),
+            ]);
+        } else {
+            return view('exercise_overview', [
+                'exercise' => exercises::paginate(15),
+            ]);
+        }
     }
 
     public function show($id)
@@ -24,5 +33,4 @@ class ExerciseController extends Controller
             'workout' => workouts::where('user_id', Auth::user()->id)->get()
         ]);
     }
-
 }

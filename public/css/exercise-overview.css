@@ -7,13 +7,22 @@
 }
 
 .exercise-grid-child {
+    justify-content: center;
     border: 1px rgba(240, 83, 64, 0.8) solid;
     background-color: rgba(240, 83, 64, 0.3);
-    min-height: 20rem;
-    max-height: 20rem;
+    height: 20rem;
     overflow: hidden;
     text-overflow: wrap;
     overflow-wrap: break-word;
+}
+
+.exercise-grid-child-link {
+    width: 100%;
+}
+
+.exercise-image {
+    height: 80%;
+    margin: auto;
 }
 
 .log-row {

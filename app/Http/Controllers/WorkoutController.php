@@ -13,9 +13,19 @@ class WorkoutController extends Controller
     // Workout overview
     public function index(Request $request)
     {
-        return view('workout_overview', [
-            'workout' => workouts::where('user_id', Auth::user()->id)->get()
-        ]);
+        if($request->query('query')) {
+            $workout = workouts::where('user_id', auth::user()->id)
+                ->where('name', $request->query('query'))
+                ->orWhere('description', $request->query('query'));
+
+            return view('workout_overview', [
+                'workout' => $workout->paginate(15)
+            ]);
+        } else {
+            return view('workout_overview', [
+                'workout' => workouts::where('user_id', Auth::user()->id)->paginate(15)
+            ]);
+        }
     }
 
     // Show exercises in workout (details)
