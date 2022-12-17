@@ -10,13 +10,10 @@
 
         <div class="exercise-grid">
             @foreach ($exercise as $e)
-                <div class="exercise-grid-child shadow sm:rounded-lg">
-                    <a href="{{ url('exercise/' . $e->id)}}">
-                        <div style="height:80%; width: 100%;">
-                            <p class="text-gray-900 dark:text-white px-6 pt-6">{{ $e->name }}</p>
-                            <br>
-                            <p class="px-6">{{ $e->description }}</p>
-                        </div>
+                <div class="exercise-grid-child sm:rounded-lg">
+                    <a href="{{ url('exercise/' . $e->id)}}" class="exercise-grid-child-link">
+                        <p class="text-gray-900 dark:text-white px-6 pt-6 mb-1">{{ $e->name }}</p>
+                        <img src="{{ url('image/' . $e->image) }}" class="exercise-image">
                     </a>
                     <div class="flex flex-row justify-end pr-6" style="height:20%; width: 100%;">
                     </div>

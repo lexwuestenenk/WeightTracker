@@ -54,7 +54,6 @@
             </form>
         </x-modal>
     </header>
-
     <div class="exercise-grid">
         @foreach ($workout as $w)
                 <div class="exercise-grid-child shadow sm:rounded-lg">

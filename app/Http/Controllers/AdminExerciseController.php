@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
 use App\Models\workouts;
 use App\Models\exercises;
 use Illuminate\Http\Request;
@@ -34,7 +33,7 @@ class AdminExerciseController extends Controller
         {
             $file = $request->file('image');
             $filename = date('YmdHi').$file->getClientOriginalName();
-            $file->move(public_path('public/image'), $filename);
+            $file->move(public_path('image'), $filename);
         }
 
         exercises::create([

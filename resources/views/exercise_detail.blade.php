@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Exercise &nbsp > &nbsp {{ $exercise->name }}
+        <h2 class="font-semibold text-xl dark:text-white leading-tight">
+            Exercises > {{ $exercise->name }}
         </h2>
     </x-slot>
 
