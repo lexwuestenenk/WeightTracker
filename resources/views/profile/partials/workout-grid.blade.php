@@ -56,7 +56,7 @@
     </header>
     <div class="exercise-grid">
         @foreach ($workout as $w)
-                <div class="exercise-grid-child shadow sm:rounded-lg">
+                <div class="exercise-grid-child shadow sm:rounded-lg" data-cy="{{ $w->name }}">
                     <a href="{{ url('workout/' . $w->id)}}">
                         <div style="height:80%; width: 100%;">
                             <p class="text-gray-900 dark:text-white px-6 pt-6">{{ $w->name }}</p>
@@ -82,7 +82,7 @@
                             {{-- Update workout using the workout.update route 
                                 This function opens up a modal that asks the user to verify
                                 they want to delete the workout--}}
-                            <form method="post" action="{{ route('workout.update') }}" class="p-6" data-cy="workout-update-form">
+                            <form method="post" action="{{ route('workout.update') }}" class="p-6" data-cy="{{ $w->name }}-edit">
                                 @csrf
                                 @method('patch')
                 
@@ -97,7 +97,7 @@
                             
                                 <div>
                                     <x-input-label class="g-white text-gray-900 dark:text-white" for="description" :value="__('Length (CM)')" />
-                                    <x-text-input id="description" name="description" type="text" class="mt-1 block w-full" data-cy="descriptiob" :value="old('description', $w->description)" required autofocus autocomplete="length" />
+                                    <x-text-input id="description" name="description" type="text" class="mt-1 block w-full" data-cy="description" :value="old('description', $w->description)" required autofocus autocomplete="length" />
                                     <x-input-error class="mt-2" :messages="$errors->get('description')" />
                                 </div>
 
@@ -130,7 +130,7 @@
                             </p>
 
                             <!-- Form used to create new workouts -->
-                            <form method="post" action="{{ route('workout.destroy') }}" class="p-6" data-cy="workout-delete-form">
+                            <form method="post" action="{{ route('workout.destroy') }}" class="p-6" data-cy="{{ $w->name }}-delete">
                                 @csrf
                                 @method('delete')
                 
