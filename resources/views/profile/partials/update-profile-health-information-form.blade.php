@@ -13,25 +13,25 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('user-info.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('user-info.update') }}" class="mt-6 space-y-6" data-cy="user-info-update-form">
         @csrf
         @method('patch')
 
         <div>
             <x-input-label class="g-white text-gray-900 dark:text-white" for="age" :value="__('Age')" />
-            <x-text-input id="age" name="age" type="number" class="mt-1 block w-full" :value="old('age', $personal_information->age)" required autofocus autocomplete="age" />
+            <x-text-input id="age" name="age" type="number" class="mt-1 block w-full" :value="old('age', $personal_information->age)" required autofocus autocomplete="age" data-cy="age"/>
             <x-input-error class="mt-2" :messages="$errors->get('age')" />
         </div>
     
         <div>
             <x-input-label class="g-white text-gray-900 dark:text-white" for="length" :value="__('Length (CM)')" />
-            <x-text-input id="length" name="length" type="number" step="any" min="0" class="mt-1 block w-full" :value="old('length', $personal_information->length)" required autofocus autocomplete="length" />
+            <x-text-input id="length" name="length" type="number" step="any" min="0" class="mt-1 block w-full" :value="old('length', $personal_information->length)" required autofocus autocomplete="length" data-cy="length"/>
             <x-input-error class="mt-2" :messages="$errors->get('length')" />
         </div>
 
         <div>
             <x-input-label class="g-white text-gray-900 dark:text-white" for="weights" :value="__('Weight (KG)')" />
-            <x-text-input id="weights" name="weights" type="number" step="any" min="0" class="mt-1 block w-full" :value="old('weight', $weight_latest->weights)" required autofocus autocomplete="weights" />
+            <x-text-input id="weights" name="weights" type="number" step="any" min="0" class="mt-1 block w-full" :value="old('weight', $weight_latest->weights)" required autofocus autocomplete="weights" data-cy="weights"/>
             <x-input-error class="mt-2" :messages="$errors->get('Weight')" />
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
@@ -57,7 +57,7 @@
 
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+            <x-primary-button data-cy="submit" >{{ __('Save') }}</x-primary-button>
 
             @if (session('status') === 'profile-updated')
                 <p
