@@ -18,8 +18,12 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        @if (session('status'))
-            <div class="status-alert" data-cy="status-alert">
+        @if (session('status') && session('action') == 'Failed')
+            <div class="status-alert failed" data-cy="status-alert">
+                {{ session('status') }}
+            </div>
+        @elseif (session('status') && session('action') == 'Succes')
+            <div class="status-alert succeeded" data-cy="status-alert">
                 {{ session('status') }}
             </div>
         @endif

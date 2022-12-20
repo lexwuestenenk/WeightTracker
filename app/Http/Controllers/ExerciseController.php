@@ -13,8 +13,8 @@ class ExerciseController extends Controller
     public function index(Request $request)
     {
         if($request->query('query')) {
-            $exercise = exercises::where('name', $request->query('query'))
-                ->orWhere('description', $request->query('query'));
+            $exercise = exercises::where('name', 'LIKE', '%' . $request->query('query') . '%')
+                ->orWhere('description', 'LIKE', '%' .  $request->query('query') . '%');
 
             return view('exercise_overview', [
                 'exercise' => $exercise->paginate(15),

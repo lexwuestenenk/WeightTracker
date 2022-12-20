@@ -15,8 +15,8 @@ class WorkoutController extends Controller
     {
         if($request->query('query')) {
             $workout = workouts::where('user_id', auth::user()->id)
-                ->where('name', $request->query('query'))
-                ->orWhere('description', $request->query('query'));
+                ->where('name', 'LIKE', '%' . $request->query('query') . '%')
+                ->orWhere('description', 'LIKE', '%' . $request->query('query') . '%');
 
             return view('workout_overview', [
                 'workout' => $workout->paginate(15)
@@ -43,7 +43,7 @@ class WorkoutController extends Controller
             ]);
         }
         
-        return redirect()->route('dashboard.index')->with('status', "That's not your workout!");
+        return redirect()->route('dashboard.index')->with('status', "Nice try ;)")->with('action', 'Failed');;
     }
 
     // Create new workout
@@ -55,7 +55,7 @@ class WorkoutController extends Controller
             'user_id' => Auth::user()->id
         ]);
 
-        return redirect()->route('workout.index')->with('status', 'Workout has been created!');
+        return redirect()->route('workout.index')->with('status', 'Workout has been created!')->with('action', 'Succes');;
     }
 
     // Update existing workout
@@ -68,7 +68,7 @@ class WorkoutController extends Controller
             $workout->description = $request->description;
             $workout->save();
     
-            return redirect()->route('workout.index')->with('status', 'Workout has been updated!');        
+            return redirect()->route('workout.index')->with('status', 'Workout has been updated!')->with('action', 'Succes');;        
         }
         return redirect()->back()->with('status', 'Nice try ;)');
     }
@@ -79,9 +79,9 @@ class WorkoutController extends Controller
         if(workouts::where('user_id', Auth::user()->id)->where('id', $request->id)->get()->isNotEmpty())
         {
             workouts::where('user_id', Auth::user()->id)->where('id', $request->id)->first()->delete();
-            return redirect()->back()->with('status', 'Workout has been deleted!');
+            return redirect()->back()->with('status', 'Workout has been deleted!')->with('action', 'Succes');;
         }
 
-        return redirect()->back()->with('status', 'Nice try ;)');
+        return redirect()->back()->with('status', 'Nice try ;)')->with('action', 'Failed');;
     }
 }
