@@ -12,19 +12,19 @@
 
         <div class="mb-6">
             <x-input-label for="name" class="text-gray-900 text-gray-900 dark:text-white" :value="__('Exercise Name')" />
-            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" required autofocus autocomplete="name" />
+            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full text-gray-500" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
         <div class="mb-6">
             <x-input-label for="description" class="text-gray-900 text-gray-900 dark:text-white" :value="__('Exercise Description')" />
-            <x-text-input id="description" name="description" type="text" class="mt-1 block w-full" required autofocus autocomplete="description" />
+            <x-text-input id="description" name="description" type="text" class="mt-1 block w-full text-gray-500" required autofocus autocomplete="description" />
             <x-input-error class="mt-2" :messages="$errors->get('description')" />
         </div>
 
         <div class="dark:text-white">
             <x-input-label for="image" class="text-gray-900 text-gray-900 dark:text-white" :value="__('Exercise Image')" />
-            <x-text-input id="image" name="image" type="file" class="mt-1 block w-full" required autofocus autocomplete="image" />
+            <x-text-input id="image" name="image" type="file" class="mt-1 block w-full text-gray-500" required autofocus autocomplete="image" />
             <x-input-error class="mt-2" :messages="$errors->get('image')" />
         </div>
 

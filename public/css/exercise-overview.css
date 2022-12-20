@@ -149,7 +149,6 @@
     text-align: center;
     align-items: center;
     z-index: 100;
-    background-color: greenyellow;
     opacity: 0.8;
     padding: 2rem;
     border-radius: 15px;
@@ -158,4 +157,12 @@
     animation-fill-mode: forwards;
     animation-iteration-count: 2;
     animation-direction: alternate;
+}
+
+.failed {
+    background-color: red;
+}
+
+.succeeded {
+    background-color: greenyellow;
 }

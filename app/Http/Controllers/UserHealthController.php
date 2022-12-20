@@ -23,10 +23,16 @@ class UserHealthController extends Controller
 
     public function update(Request $request)
     {
+        $bmi = round((($request->weights / $request->length / $request->length) * 10000), 2);
+
+        if ($bmi >= 100) {
+            return redirect()->back()->with('status', 'Please enter realistic details')->with('action', 'Failed');;
+        }
+
         user_weight::create([
             'user_id' => Auth::user()->id,
             'weights' => $request->weights,
-            'bmi' => round((($request->weights / $request->length / $request->length) * 10000), 2)
+            'bmi' => $bmi
         ]);
 
         personal_information::updateOrCreate(
@@ -41,6 +47,6 @@ class UserHealthController extends Controller
             ]
         );
 
-        return redirect()->back()->with('status', 'Health information has been updated!'); 
+        return redirect()->back()->with('status', 'Health information has been updated!')->with('action', 'Succes');; 
     }
 }

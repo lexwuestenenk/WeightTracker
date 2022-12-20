@@ -42,6 +42,6 @@ class AdminExerciseController extends Controller
             'image' => $filename,
         ]);
 
-        return redirect()->route('admin-exercises.index')->with('status', 'Exercise has been created!');
+        return redirect()->route('admin-exercises.index')->with('status', 'Exercise has been created!')->with('action', 'Succes');
     }
 }
