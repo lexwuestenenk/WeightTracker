@@ -40,7 +40,6 @@ vendor/pkg/
 pyenv
 Vagrantfile
 
-docker-compose.yml
 *.env
 mybb/
 mariadb/
