@@ -14,7 +14,7 @@ class ExerciseWorkout extends Controller
     {
         if(exercise_workouts::where('user_id', Auth::user()->id)->where('exercise_id', $request->exercise_id)->where('workout_id', $request->workout_id)->get()->isNotEmpty())
         {
-            return redirect()->back()->with('status', 'Exercise is already in your workout!');
+            return redirect()->back()->with('status', 'Exercise is already in your workout!')->with('action', 'Failed');;
         }
 
         exercise_workouts::create([
@@ -23,7 +23,7 @@ class ExerciseWorkout extends Controller
             'user_id' => Auth::user()->id,
         ]);
 
-        return redirect()->back()->with('status', 'Exercise has been added to your workout!');
+        return redirect()->back()->with('status', 'Exercise has been added to your workout!')->with('action', 'Succes');;
     }
 
     public function destroy(Request $request)
@@ -36,7 +36,7 @@ class ExerciseWorkout extends Controller
             return redirect()->back()->with('status', 'Exercise has been deleted from your workout!');
         }
 
-        return redirect()->back()->with('status', 'Nice try ;)');
+        return redirect()->back()->with('status', 'Nice try ;)')->with('action', 'Failed');;
     }
 
     

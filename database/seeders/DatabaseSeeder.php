@@ -18,8 +18,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        exercises::factory(20)->create();
-
         DB::table('users')->insert([
             [
                 'name' => 'test-user',

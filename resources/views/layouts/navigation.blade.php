@@ -44,7 +44,7 @@
             <div class="hidden sm:flex sm:items-center sm:ml-6" data-cy="account-dropdown">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150 bg-gray-100 dark:bg-gray-900">
+                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 transition ease-in-out duration-150 bg-gray-100 dark:bg-gray-900">
                             <div class="text-gray-900 dark:text-white">{{ Auth::user()->name }}</div>
 
                             <div class="ml-1 text-gray-900 dark:text-white">
@@ -76,7 +76,7 @@
 
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden bg-gray-100 dark:bg-gray-900">
-                <button @click="open = ! open" class="test inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 focus:outline-none bg-gray-100 dark:bg-gray-800 focus:text-gray-500 transition duration-150 ease-in-out">
+                <button @click="open = ! open" class="test inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 dark:bg-gray-800 focus:text-gray-500 transition duration-150 ease-in-out">
                     <svg class="h-6 w-6 bg-gray-100 dark:bg-gray-800" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
